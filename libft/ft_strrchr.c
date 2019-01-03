@@ -21,13 +21,3 @@ char	*ft_strrchr(const char *s, int c)
 	}
 	return (0);
 }
-
-int	main()
-{
-	int c = 'c';
-	char *str = "abdfdcd";
-
-	printf("my  strrchr %p\n", ft_strrchr(str, c));
-	printf("org strrchr %p\n", strrchr(str, c));
-	return (0);
-}

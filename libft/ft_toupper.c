@@ -6,11 +6,3 @@ int	ft_toupper(int c)
 		return (c - 32);
 	return (c);
 }
-
-int	main()
-{
-	int c = 'Z';
-	printf("my  toupper %d\n", ft_toupper(c));
-	printf("org toupper %d\n", toupper(c));
-	return (0);
-}

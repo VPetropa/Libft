@@ -1,5 +1,4 @@
 #include "libft.h"
-#include "unistd.h"
 
 int	ft_count(char const *str, char sc)
 {
@@ -17,7 +16,6 @@ int	ft_count(char const *str, char sc)
 		while (str[i] != '\0' && str[i] != sc)
 			i++;
 	}
-	printf("words are %d\n", c);
 	return (c);
 }
 
@@ -39,8 +37,6 @@ int	ft_wlen(char const *str, char sc)
 			len += 1;
 			i++;
 		}
-		printf("len e %d\n", len);
-		fflush(stdout);
 		return (len);
 	}
 	return (0);
@@ -53,7 +49,7 @@ static char	*ft_strndup(const char *s, size_t n)
 	str = (char *)malloc(sizeof(char) * n + 1);
 	if (str == NULL)
 		return (NULL);
-	str = strncpy(str, s, n); // to update to ft_strncpy!!!
+	str = ft_strncpy(str, s, n);
 		str[n] = '\0';
 	return (str);
 }
@@ -87,39 +83,3 @@ char	**ft_strsplit(char const *s, char c)
 	array[k] = '\0';
 	return (array);
 }
-
-void	ft_putchar(char c) // to dell
-
-{
-	write (1, &c, 1);
-}
-
-void	ft_print_words_tables(char **tab) // to dell
-{
-	int i;
-	int j;
-
-	i = 0;
-	j = 0;
-	while (tab[i] != 0)
-	{
-		j = 0;
-		while (tab[i][j] != '\0')
-		{
-			ft_putchar(tab[i][j++]);
-		}
-		ft_putchar('\n');
-		i++;
-	}
-}
-
-int	main ()
-{
-	char const *s = "hello***world******bobjo";
-	char c = '*';
-
-	ft_print_words_tables(ft_strsplit(s, c));
-	return (0);
-}
-
-

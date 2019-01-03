@@ -1,5 +1,4 @@
 #include "libft.h"
-#include <string.h>
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t n)
 {
@@ -18,13 +17,5 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t n)
 			return ((char *)(haystack + i));
 		i++;
 	}
-	return (0);
-}
-
-int	main()
-{
-	char *hay = "assdfg";
-	char *nee = "df";
-	printf("adress is %p\n", ft_strnstr(hay, nee, 5));
 	return (0);
 }

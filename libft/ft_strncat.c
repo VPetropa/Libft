@@ -18,13 +18,3 @@ char	*ft_strncat(char *dst, const char *src, size_t n)
 	dst[i] = '\0';
 	return (dst);
 }
-
-int	main()
-{
-	char str[6] = "Hello";
-	char dst[4] = "Isay";
-
-	//printf("ori strncat %s\n", strncat(dst, str, 20));
-	printf("my  strncat %s\n", ft_strncat(dst, str, 20));
-	return (0);
-}

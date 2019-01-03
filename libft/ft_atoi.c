@@ -24,11 +24,3 @@ int	ft_atoi(const char *str)
 	}
 	return (nbr * sign);
 }
-
-int	main ()
-{
-	char *str = "+-123f";
-	printf("my  atoi %d\n", ft_atoi(str));
-	printf("org atoi %d\n", atoi(str));
-	return (0);
-}

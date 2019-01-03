@@ -11,12 +11,3 @@ void	ft_strclr(char *s)
 		i++;
 	}
 }
-
-int	main()
-{
-	char *s = "aabaa";
-	//printf("%p %s\n", s, s);
-	ft_strclr(s);
-	printf("%p \n", s);
-	return (0);
-}

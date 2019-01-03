@@ -8,12 +8,6 @@ void	*ft_memalloc(size_t size)
 	
 	if (str == 0)
 		return (0);
-	bzero(str, size); //to update to ft_bzero
+	ft_bzero(str, size);
 	return (str);
-}
-
-int	main()
-{
-	printf("%p\n", ft_memalloc(0));
-	return (0);
 }

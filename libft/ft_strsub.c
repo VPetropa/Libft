@@ -17,10 +17,3 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 	str[i] = '\0';
 	return (str);
 }
-
-int	main ()
-{
-	char *s = "Veronica";
-	printf("the string is %s\n", ft_strsub(s, 2, 3));
-	return (0);
-}

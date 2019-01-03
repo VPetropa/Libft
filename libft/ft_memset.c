@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include <string.h>
-//#include "libft.h"
+#include "libft.h"
 
 void	*ft_memset(void *src, int c, size_t len)
 {
@@ -15,17 +13,4 @@ void	*ft_memset(void *src, int c, size_t len)
 		i++;
 	}
 	return (dest);
-}
-
-int	main()
-{
-	char str[5] = "abcde";
-	printf("before memset %s\n", str);
-
-	memset(str + 2, '.',2*sizeof(char));
-	printf("after memset %s\n", str);
-	ft_memset(str+3,'@',1);
-	fflush(stdout);
-	printf("after MY memse %s\n", str);
-	return (0);
 }

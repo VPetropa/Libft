@@ -12,13 +12,3 @@ char	*ft_strchr(const char *str, int c)
 		return ((char *)str);
 	return (0);
 }
-
-int	main()
-{
-	char *str = "abcd";
-	char c = 'v';
-
-	printf("the adress is %p\n", ft_strchr(str, c));
-	printf("the adress is %p\n", strchr(str, c));
-	return (0);
-}

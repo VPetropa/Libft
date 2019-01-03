@@ -16,9 +16,3 @@ char	*ft_strnew(size_t size)
 	}
 	return (str);
 }
-
-int 	main()
-{
-	printf("%p\n", ft_strnew(5));
-	return (0);
-}

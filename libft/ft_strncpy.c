@@ -17,13 +17,3 @@ char	*ft_strncpy(char *dest, const char *src, size_t n)
 	}
 	return (dest);
 }
-
-int	main()
-{
-	char src[5] = "asdf";
-	char dest[5];
-
-	printf("my  strncpy %s\n", ft_strncpy(dest, src, 7));
-	printf("org strncpy %s\n", strncpy(dest, src, 7));
-	return (0);
-}

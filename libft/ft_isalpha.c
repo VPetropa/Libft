@@ -6,12 +6,3 @@ int	ft_isalpha(int c)
 		return (1);
 	return (0);
 }
-
-int	main()
-{
-	int c = 'c';
-
-	printf("is alpha %d\n", ft_isalpha(c));
-	printf("orfaplha %d\n", isalpha(c));
-	return (0);
-}

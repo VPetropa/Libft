@@ -16,24 +16,13 @@ char	*ft_strtrim(char const *s)
 	k = i;
 	while ((s[i + j] != ' ' || s[i + j] != '\t' || s[i + j] != '\n') && s[i + j] != '\0')
 	{
-		printf("we are in loop\n");
-		fflush(stdout);
 		if ((s[i + j + 1] == ' ' || s[i + j + 1] == '\t' || s[i + j + 1] == '\n') && s[i + j + 1] != '\0')
-			i++;
+		i++;
 		j++;
 	}
-	printf("count is %d %d\n", j, i);
-	fflush(stdout);
 	str = (char *)malloc(sizeof(char) * j + 1);
 	while (l < j)
 		str[l++] = s[k++];
 	str[l] = '\0';
 	return (str);
-}
-
-int	main()
-{
-	char *s = "   Hello World   ";
-	printf("%s\n", ft_strtrim(s));
-	return (0);
 }

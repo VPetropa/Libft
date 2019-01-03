@@ -12,11 +12,3 @@ int	ft_strequ(char const *s1, char const *s2)
 	else
 		return (0);
 }
-
-int	main()
-{
-	char *s1 = "a";
-	char *s2 = "";
-	printf("%d\n", ft_strequ(s1, s2));
-	return (0);
-}

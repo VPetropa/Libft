@@ -4,12 +4,12 @@ t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
 	t_list *newlist;
 
-	if (lst != NULL && f != NULL)
+	if (lst != 0 && f != 0)
 	{
 		newlist = f(lst);
-		if (newlist != NULL && lst->next != NULL)
+		if (newlist != 0 && lst->next != 0)
 			newlist->next = ft_lstmap(lst->next, f);
 		return (newlist);
 	}
-	return (NULL);
+	return (0);
 }

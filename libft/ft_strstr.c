@@ -20,13 +20,3 @@ char	*ft_strstr(const char *haystack, const char *needle)
 	}
 	return (0);
 }
-
-int	main()
-{
-	char *hey = "Hello world";
-	char *nee = "w";
-
-	printf("my  strstr %p\n", ft_strstr(hey, nee));
-	printf("org strstr %p\n", strstr(hey, nee));
-	return (0);
-}

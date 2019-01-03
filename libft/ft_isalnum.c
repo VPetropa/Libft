@@ -8,12 +8,3 @@ int	ft_isalnum(int c)
 		return (1);
 	return (0);
 }
-
-int	main()
-{
-	int c = '-';
-
-	printf("my  isalnum %d\n", ft_isalnum(c));
-	printf("org isalnum %d\n", isalnum(c));
-	return (0);
-}

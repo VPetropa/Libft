@@ -15,13 +15,3 @@ char *ft_strcat(char *dest, const char *src)
 	dest[i] = '\0';
 	return (dest);
 }
-
-int	main()
-{
-	char src[5] = "asdf";
-	char dest[7] = "as";
-
-	printf("my  strcat %s\n", ft_strcat(dest, src));
-	printf("org strcat %s\n", strcat(dest, src));
-	return (0);
-}
