@@ -1,85 +1,74 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vpetropa <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/01/05 17:34:00 by vpetropa          #+#    #+#             */
+/*   Updated: 2019/01/05 19:50:12 by vpetropa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int	ft_count(char const *str, char sc)
+static size_t		ft_len_c_stop(const char *str, int start, char c_stop)
 {
-	int		i;
-	int		c;
+	size_t		counter;
 
-	i = 0;
-	c = 0;
-	while (str[i] != '\0')
-	{
-		while (str[i] == sc)
-			i++;
-		if (str[i] != '\0')
-			c++;
-		while (str[i] != '\0' && str[i] != sc)
-			i++;
-	}
-	return (c);
-}
-
-int	ft_wlen(char const *str, char sc)
-{
-	int	i;
-	int	len;
-
-	i = 0;
-	len = 0;
-	while (str[i] != '\0')
-	{
-		while (str[i] == sc)
-		{
-			i += 1;
-		}
-		while (str[i] != '\0' && str[i] != sc)
-		{
-			len += 1;
-			i++;
-		}
-		return (len);
-	}
-	return (0);
-}
-
-static char	*ft_strndup(const char *s, size_t n)
-{
-	char	*str;
-
-	str = (char *)malloc(sizeof(char) * n + 1);
-	if (str == NULL)
-		return (NULL);
-	str = ft_strncpy(str, s, n);
-		str[n] = '\0';
-	return (str);
-}
-
-char	**ft_strsplit(char const *s, char c)
-{
-	char **array;
-	int i;
-	int j;
-	int k;
-
-	i = 0;
-	j = 0;
-	k = 0;
-	array = (char **)malloc(sizeof(char *) * ft_count(s, c) + 1);
-	if (array == 0)
+	if (!str)
 		return (0);
-	while (s[i] != '\0')
+	counter = 0;
+	while (str[start] && (str[start] != c_stop))
 	{
-		while (s[i] == c)
-			i++;
-		j = i;
-		while (s[i] != '\0' && s[i] != c)
-			i++;
-		if (k < ft_count(s, c))
-		{
-			array[k] = (ft_strndup(s + j, ft_wlen(s, c)));
-			k++;
-		}
+		start++;
+		counter++;
 	}
-	array[k] = '\0';
-	return (array);
+	return (counter);
+}
+
+static int			ft_split_count(char *str, char c)
+{
+	int		count_word;
+	int		counter;
+
+	counter = 0;
+	count_word = 0;
+	while (str[counter])
+	{
+		if (str[counter] != c && str[counter] != '\0')
+			count_word++;
+		while (str[counter + 1] != '\0' && str[counter] != c)
+			counter++;
+		counter++;
+	}
+	return (count_word);
+}
+
+char				**ft_strsplit(char const *s, char c)
+{
+	int				i;
+	unsigned int	counter;
+	char			**array_s;
+	char			*str;
+
+	if (s == 0)
+		return (NULL);
+	str = (char *)s;
+	array_s = (char**)ft_memalloc(sizeof(char*) * (ft_split_count(str, c) + 1));
+	if (array_s == 0)
+		return (0);
+	counter = 0;
+	i = 0;
+	while (i < ft_split_count(str, c))
+	{
+		while ((str[counter] == (char)c) && str[counter])
+			counter++;
+		array_s[i] = ft_strsub(str, counter, ft_len_c_stop(str, counter, c));
+		while ((str[counter] != (char)c) && str[counter])
+			counter++;
+		i++;
+	}
+	array_s[i] = 0;
+	return (array_s);
 }
